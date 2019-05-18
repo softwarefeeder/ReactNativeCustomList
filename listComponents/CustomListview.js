@@ -1,6 +1,9 @@
 import React from 'react';
-import { View, ListView, FlatList, StyleSheet, Text } from 'react-native';
+import { View, Image, FlatList, StyleSheet, Text } from 'react-native';
 import CustomRow from './CustomRow';
+let pic = {
+  uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png'
+};
 
 const styles = StyleSheet.create({
     container: {
@@ -26,13 +29,14 @@ const CustomListview = ({ itemList }) => (
         <FlatList
                 
                 data={itemList}
+                  //dataSource to add data in the list
+                  ListHeaderComponent={this.renderHeader}
+                  //Header to show above listview
+                  ListFooterComponent={this.renderFooter}
                 renderItem={({ item }) => <CustomRow
                     title={item.title}
                     image_url={item.image_url}
-                    //dataSource to add data in the list
-                   ListHeaderComponent={this.renderHeader}
-                 //Header to show above listview
-                 ListFooterComponent={this.renderFooter}
+                  
                 />}
             />
 
@@ -45,6 +49,7 @@ renderHeader = () => {
     //View to set in Header
     return (
       <View style={styles.header_footer_style}>
+        <Image source={pic} style={styles.photo} />
         <Text style={styles.textStyle}> This is Header </Text>
       </View>
     );
@@ -53,6 +58,7 @@ renderHeader = () => {
     //View to set in Footer
     return (
       <View style={styles.header_footer_style}>
+        <Image source={pic} style={styles.photo} />
         <Text style={styles.textStyle}> This is Footer </Text>
       </View>
     );

@@ -2,15 +2,11 @@ import React from 'react';
 import CustomListview from './listComponents/CustomListview'
 
 import {
-  Platform,
   StyleSheet,
-  Text,
   View
 } from 'react-native';
 
-
 export default class App extends React.Component{
-
 
   /* Return object for populate the list */
   getData() {
